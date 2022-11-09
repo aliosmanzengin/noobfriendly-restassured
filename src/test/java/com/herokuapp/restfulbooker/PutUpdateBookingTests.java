@@ -20,7 +20,7 @@ public class PutUpdateBookingTests extends BaseTest{
         // when doing update operation
         int id = responseCreate.jsonPath().getInt("bookingid");
 
-        //Update the booking
+        //Creating JSON Body
         JSONObject jsonBody = new JSONObject();
         jsonBody.put("firstname", "Ewelina");
         jsonBody.put("lastname", "Stawrz");
@@ -33,9 +33,9 @@ public class PutUpdateBookingTests extends BaseTest{
         jsonBody.put("bookingdates", bookingDates);
         jsonBody.put("additionalneeds", "air conditioner");
 
-        // responseCreate
-        Response responseUpdate = RestAssured.given().contentType(ContentType.JSON).
-                body(jsonBody.toString()).put("https://restful-booker.herokuapp.com/booking/" + id);
+        // Update the booking with PUT req
+        Response responseUpdate = RestAssured.given(spec).auth().preemptive().basic("admin", "password123").contentType(ContentType.JSON).
+                body(jsonBody.toString()).put("/booking/" + id);
         responseUpdate.prettyPrint();
         //Verifications
         Assert.assertEquals(responseUpdate.getStatusCode(), 200);
@@ -44,7 +44,7 @@ public class PutUpdateBookingTests extends BaseTest{
 
         String actualLastName = responseUpdate.jsonPath().getString("lastname");
         String actualFirstName = responseUpdate.jsonPath().getString("firstname");
-        int price = responseUpdate.jsonPath().getInt("booking.totalprice");
+        int price = responseUpdate.jsonPath().getInt("totalprice");
         boolean isDepositPaid = responseUpdate.jsonPath().getBoolean("depositpaid");
         String actualCheckinDate = responseUpdate.jsonPath().getString("bookingdates.checkin");
         String actualCheckoutDate = responseUpdate.jsonPath().getString("bookingdates.checkout");
