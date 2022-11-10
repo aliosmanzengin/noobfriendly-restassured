@@ -26,7 +26,7 @@ public class GetBookingIdsTests extends BaseTest{
     public void getBookingIdsWithFilterTest(){
         //add query parameter to spec
         spec.queryParam("lastname", "Zengin");
-        spec.queryParam("firstname", "Ali");
+//        spec.queryParam("firstname", "Ali");
 
 
         Response response = RestAssured.given(spec).get("/booking");
