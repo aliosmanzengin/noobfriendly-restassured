@@ -1,4 +1,4 @@
-package com.herokuapp.restfulbooker;
+package com.herokuapp.restfulbooker.Pojos;
 
 public class Bookingdates {
     private String checkin;

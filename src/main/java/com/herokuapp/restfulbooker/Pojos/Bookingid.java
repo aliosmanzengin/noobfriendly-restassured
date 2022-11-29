@@ -1,4 +1,6 @@
-package com.herokuapp.restfulbooker;
+package com.herokuapp.restfulbooker.Pojos;
+
+import com.herokuapp.restfulbooker.Pojos.Booking;
 
 public class Bookingid {
     private int bookingid;
