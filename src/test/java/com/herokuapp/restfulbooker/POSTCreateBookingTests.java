@@ -9,7 +9,7 @@ import org.testng.asserts.SoftAssert;
 
 public class POSTCreateBookingTests extends BaseTest{
 
-    @Test(enabled = true)
+    @Test(enabled = false)
     public void createBookingTest() {
         //POST
         //1.step create JSON Body
@@ -44,7 +44,7 @@ public class POSTCreateBookingTests extends BaseTest{
         Bookingdates bookingDates = new Bookingdates("2022-10-15", "2022-10-16");
         Booking booking = new Booking("Osman", "Zengin", 111, true, bookingDates, "beer");
 
-        //Get response
+        //Get response o
         Response response = RestAssured.given(spec).contentType(ContentType.JSON).body(booking)
                 .post("/booking");
         response.prettyPrint();

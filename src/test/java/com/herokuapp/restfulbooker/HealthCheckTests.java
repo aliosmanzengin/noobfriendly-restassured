@@ -9,7 +9,7 @@ import io.restassured.response.Response;
 import org.testng.annotations.Test;
 import static io.restassured.RestAssured.*;
 
-public class HealthCheck extends BaseTest{
+public class HealthCheckTests extends BaseTest{
 
     @Test
     public void healthCheckTest() {
